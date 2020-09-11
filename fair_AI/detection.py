@@ -25,6 +25,18 @@ def twoafc_experiment(left_embedding, right_embedding, target_embeddings):
     
     
 def bisect_search(left_word, right_word, target_word, model, delta_alpha=1/100):
+    try:
+        model[right_word]
+    except KeyError:
+        print(right_word + ' not in dictionary')
+    try:
+        model[left_word]
+    except KeyError:
+        print(left_word + ' not in dictionary')
+    try:
+        model[target_word]
+    except KeyError:
+        print(target_word + ' not in dictionary')
     left_token = model[left_word]
     right_roken = model[right_word]
     target_token = model[target_word]
@@ -65,15 +77,15 @@ def psy_cur(right_word, left_word, target_word, embeddings_dict):
     try:
         embeddings_dict[right_word]
     except KeyError:
-        print('Right word not in dictionary')
+        print(right_word + ' not in dictionary')
     try:
         embeddings_dict[left_word]
     except KeyError:
-        print('Left word not in dictionary')
+        print(left_word + ' not in dictionary')
     try:
         embeddings_dict[target_word]
     except KeyError:
-        print('Target word not in dictionary')
+        print(target_word + ' not in dictionary')
     d = twoafc_experiment(embeddings_dict[right_word], 
                       embeddings_dict[left_word],
                       [embeddings_dict[target_word]])
@@ -94,16 +106,16 @@ def psy_cur(right_word, left_word, target_word, embeddings_dict):
 
 
 def pse(pairs, target, embeddings_dict):
-    gender_dict = {}
-    gender_dict['target'] = []
-    gender_dict['Left'] = []
-    gender_dict['Right'] = []
+    w_dict = {}
+    w_dict['target'] = []
+    w_dict['Left'] = []
+    w_dict['Right'] = []
     for n in target:
         for pair in pairs:
-            gender_dict['Left'].append(pair[0])
-            gender_dict['Right'].append(pair[1])
-            gender_dict['target'].append(n)
-    handpicked_pse = pd.DataFrame(gender_dict)
+            w_dict['Left'].append(pair[0])
+            w_dict['Right'].append(pair[1])
+            w_dict['target'].append(n)
+    handpicked_pse = pd.DataFrame(w_dict)
 
     R, C = handpicked_pse.shape
     handpicked_pse['PSE'] = None
