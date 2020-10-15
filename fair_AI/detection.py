@@ -91,8 +91,8 @@ def psy_cur(right_word, left_word, target_word, embeddings_dict):
                       [embeddings_dict[target_word]])
     plt.plot(d['alpha'], d['d'], 'b', alpha=1.0, linewidth=2);
     plt.gca().tick_params(axis='both', which='major', labelsize=7)
-    plt.xticks([0, 0.5, 1], ['100% right word', '50% right\n50% left', '100% left word']);
-    plt.yticks([0, 0.5, 1], ['Right', '', 'Left']);
+    plt.xticks([0, 0.5, 1], ['100% left word', '50% right\n50% left', '100% right word']);
+    plt.yticks([0, 0.5, 1], ['Left', '', 'Right']);
     plt.xlabel('Stimulus', fontsize=10);
     plt.ylabel('Response', fontsize=10);
     plt.title('Psychometric Curve', fontsize=10);
