@@ -123,7 +123,7 @@ def pse(pairs, target, embeddings_dict):
         n = handpicked_pse.loc[i]['target']
         l = handpicked_pse.loc[i]['Left']  
         r = handpicked_pse.loc[i]['Right']
-        handpicked_pse.loc[i]['PSE'] = int(100*bisect_search(l, r, n, embeddings_dict, delta_alpha=1/100))
+        handpicked_pse.loc[i, 'PSE'] = int(100*bisect_search(l, r, n, embeddings_dict, delta_alpha=1/100))
 
     handpicked_pse['PSE'] = handpicked_pse['PSE'].astype('float')
     handpicked_pse = handpicked_pse.groupby('target')['PSE'].mean().sort_values()
