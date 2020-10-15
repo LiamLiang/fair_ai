@@ -1,3 +1,5 @@
+[![Open All Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LiamLiang/fair_ai/blob/master/demo.ipynb)
+
 # Detecting biases in black-box AI models using inspirations from Psychology: a tutorial and applications in Python: demo and package   
 Daniel Acuna and Lizhen Liang    
 ADSA Annual Meeting  
