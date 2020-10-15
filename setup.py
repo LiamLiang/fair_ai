@@ -12,5 +12,5 @@ setuptools.setup(
     url="https://github.com/LiamLiang/fair_ai",
     packages=setuptools.find_packages(),
     python_requires='>=3.6',
-    install_requires=['scipy', 'pandas', 'numpy', 'matplotlib']
+    install_requires=['scipy', 'pandas', 'numpy', 'matplotlib', 'wget']
 )
