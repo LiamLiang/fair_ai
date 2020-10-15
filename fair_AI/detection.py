@@ -128,7 +128,7 @@ def pse(pairs, target, embeddings_dict):
     handpicked_pse['PSE'] = handpicked_pse['PSE'].astype('float')
     handpicked_pse = handpicked_pse.groupby('target')['PSE'].mean().sort_values()
 
-    plt.figure(figsize = (10, 10))
+    plt.figure(figsize = (10, 15), dpi=300)
     plt.plot(handpicked_pse.values, handpicked_pse.index.values, linewidth = 2, c = 'b')
     plt.gca().tick_params(axis='both', which='major', labelsize=7)
     plt.xticks([0, 50, 100], ['100% Left Attribute', '50% Left Attribute \n 50% Right Attribute', '100% Right Attribute']);
